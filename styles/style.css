@@ -141,11 +141,12 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin: 10px 0;
 }
 .rightContent__tryIt {
   background-color:hsl(248, 32%, 49%);
   border-radius: 10px;
-  max-width: 550px;
+  max-width: 600px;
   box-shadow: 0px 7px 0px hsla(249, 10%, 26%, 0.319);
   margin-bottom: 25px;
 }
@@ -160,28 +161,24 @@
   background-color: white;
 }
 .rightContent__forma {
-  max-width: 550px;
+  max-width: 600px;
   justify-content: center;
   padding: 40px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 40px;
 }
-.forma {
-}
+
 .forma__input{
   padding: 20px 0px 20px 50px;
-  border: 1px solid hsla(249, 10%, 26%, 0.519);
-  border-radius: 10px;
+  outline: 1px solid hsla(249, 10%, 26%, 0.519);
+  border-radius: 5px;
   font-weight: 700;
+  width: 100%;
+  position: relative;
 }
-.forma__name {
-}
-.forma__surname {
-}
-.forma__email {
-}
-.forma__pasw {
+.forma__input:focus{
+  outline: 2px solid hsla(249, 10%, 26%);
 }
 .forma__btn {
   position: relative;
@@ -191,10 +188,10 @@
   font-size: 16px;
   font-weight: 600;
   border-radius: 10px;
-  /* box-shadow: 0px 7px 0px hsl(154, 59%, 51%, 0.3); */
   transition: all 0.3s ease 0s;
+  margin-bottom: -20px;
 }
-.forma__btn::after{
+.forma__btn::before{
   position: absolute;
   content: '';
   bottom: -5px;
@@ -208,8 +205,11 @@
 .forma__btn:active{
   transform: translateY(5px);
 }
-.forma__btn:active::after{
+.forma__btn:active::before{
   transform: translateY(-5px);
+}
+.forma__btn:hover{ 
+  background-color: hsl(154, 49%, 51%);  
 }
 .redColor {
   color: hsl(0, 100%, 74%);
@@ -258,6 +258,8 @@
   .forma__input{
     padding: 20px 0px 20px 20px;
     font-weight: 600;
+    position: relative;
+
   }
   .rightContent__forma {
     max-width: 550px;
@@ -267,4 +269,106 @@
   .forma__btn {
     font-weight: 500;
   }
+}
+/*  */
+.min1{
+  min-width: 100%;
+  position: relative;
+}
+.min1::after{
+  position: absolute;
+  display: none ;
+  content: url('../images/icon-error.svg');
+  z-index: 12;
+  width: 24px;
+  height: 24px;
+  top: 18px;
+  right: 18px;
+}
+
+.fN._active::after{
+  display: block;
+}
+.fSn._active::after{
+  display: block;
+}
+.fE._active::after{
+  display: block;
+}
+.fP._active::after{
+  display: block;
+}
+.fN._active::before{
+  content: 'First name cannot be empty';
+  display: block ;
+  font-weight: 500;
+  position: absolute;
+  z-index: 5;
+  bottom: -17px;
+  color: hsl(0, 100%, 74%);
+  font-style: italic;
+  font-size: 10px;
+  width: 150px;
+  right: 0;
+}
+
+.fSn._active::before {
+  content: 'Last name cannot be empty';
+  display: block ;
+  font-weight: 500;
+  position: absolute;
+  z-index: 5;
+  bottom: -17px;
+  color: hsl(0, 100%, 74%);
+  font-style: italic;
+  font-size: 10px;
+  width: 150px;
+  right: 0;
+}
+
+.fE._active::before {
+  content: "Looks like it's not an email";
+  display: block ;
+  font-weight: 500;
+  position: absolute;
+  z-index: 5;
+  bottom: -17px;
+  color: hsl(0, 100%, 74%);
+  font-style: italic;
+  font-size: 10px;
+  width: 150px;
+  right: 0;
+}
+
+.fP._active::before {
+  content: 'Password cannot be empty';
+  display: block ;
+  font-weight: 500;
+  position: absolute;
+  z-index: 5;
+  bottom: -17px;
+  color: hsl(0, 100%, 74%);
+  font-style: italic;
+  font-size: 10px;
+  width: 150px;
+  right: 0;
+}
+
+
+ .forma__input._active{
+  outline: 2px solid  hsl(0, 100%, 74%);
+  position: relative;
+} 
+.min1::after .forma__input._active{
+  position: absolute;
+  display: block;
+  content: url('../images/icon-error.svg');
+  z-index: 12;
+  width: 24px;
+  height: 24px;
+  top: 18px;
+  right: 18px;
+} 
+.forma__input._active::placeholder   {
+  color: transparent;
 }
